@@ -6,8 +6,8 @@ See https://docs.bazel.build/versions/main/toolchains.html
 
 package(default_visibility = ["//visibility:public"])
 
-# Resolve the mylang tool for the execution platform.
+# Resolve the react_native tool for the execution platform.
 toolchain_type(name = "execution_type")
 
-# Less frequently needed: give a mylang tool for the target platform.
+# Less frequently needed: give a react_native tool for the target platform.
 toolchain_type(name = "target_type")

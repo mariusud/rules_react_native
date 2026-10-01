@@ -40,8 +40,8 @@ bazel_dep(name = "bazel_lib", version = "3.0.0", dev_dependency = True)
 
 bazel_dep(name = "bazelrc-preset.bzl", version = "1.6.0")
 
-mylang = use_extension("//mylang:extensions.bzl", "mylang")
-mylang.toolchain(mylang_version = "1.14.2")
-use_repo(mylang, "mylang_toolchains")
+react_native = use_extension("//react_native:extensions.bzl", "react_native")
+react_native.toolchain(react_native_version = "1.14.2")
+use_repo(react_native, "react_native_toolchains")
 
-register_toolchains("@mylang_toolchains//:all")
+register_toolchains("@react_native_toolchains//:all")

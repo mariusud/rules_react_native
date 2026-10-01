@@ -5,8 +5,8 @@ bzl_library(
     srcs = ["repositories.bzl"],
     visibility = ["//visibility:public"],
     deps = [
-        "//mylang/private:toolchains_repo",
-        "//mylang/private:versions",
+        "//react_native/private:toolchains_repo",
+        "//react_native/private:versions",
         "@bazel_tools//tools/build_defs/repo:cache.bzl",
         "@bazel_tools//tools/build_defs/repo:http.bzl",
         "@bazel_tools//tools/build_defs/repo:utils.bzl",
