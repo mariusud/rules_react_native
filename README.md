@@ -16,7 +16,7 @@ Features:
 Ready to get started? Copy this repo, then
 
 1. search for "rules_react_native" and replace with the name you'll use for your module
-1. search for "myorg" and replace with GitHub org
+1. search for "mariusud" and replace with GitHub org
 1. search for "mylang", "Mylang", "MYLANG" and replace with the language/tool your rules are for
 1. rename directory "mylang" similarly
 1. run `pre-commit install` to get lints (see CONTRIBUTING.md)
@@ -35,7 +35,7 @@ Note that users who _do_ want to build tools from source should still be able to
 ## Installation
 
 From the release you wish to use:
-<https://github.com/myorg/rules_mylang/releases>
+<https://github.com/mariusud/rules_mylang/releases>
 copy the Bzlmod snippet into your `MODULE.bazel` file.
 
 To use a commit rather than a release, you can point at any SHA of the repo with an `archive_override` in MODULE.bazel.
@@ -45,7 +45,7 @@ For example to use commit `abc123`:
 ```starlark
 archive_override(
     module_name = "rules_react_native",
-    url = "https://github.com/myorg/rules_mylang/archive/abc123.tar.gz",
+    url = "https://github.com/mariusud/rules_mylang/archive/abc123.tar.gz",
     strip_prefix = "rules_mylang-abc123",
     # The easiest way to set this is to commout out this line, then Bazel will print
     # a message with the correct value. Note that GitHub source archives don't have a strong
