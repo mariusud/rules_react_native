@@ -37,12 +37,12 @@ MODULE.bazel file.
 
 ```starlark
 local_path_override(
-    module_name = "com_myorg_rules_mylang",
+    module_name = "rules_react_native",
     path = "path/to/mylang",
 )
 ```
 
-This means that any usage of `@com_myorg_rules_mylang` on your system will point to this folder.
+This means that any usage of `@rules_react_native` on your system will point to this folder.
 
 ## Releasing
 

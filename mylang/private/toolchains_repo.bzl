@@ -63,14 +63,14 @@ toolchain(
     name = "{platform}_toolchain",
     exec_compatible_with = {compatible_with},
     toolchain = "@{user_repository_name}_{platform}//:mylang_toolchain",
-    toolchain_type = "@com_myorg_rules_mylang//mylang/toolchain:execution_type",
+    toolchain_type = "@rules_react_native//mylang/toolchain:execution_type",
 )
 
 toolchain(
     name = "{platform}_target_toolchain",
     target_compatible_with = {compatible_with},
     toolchain = "@{user_repository_name}_{platform}//:mylang_toolchain",
-    toolchain_type = "@com_myorg_rules_mylang//mylang/toolchain:target_type",
+    toolchain_type = "@rules_react_native//mylang/toolchain:target_type",
 )
 """.format(
             platform = platform,

@@ -15,7 +15,7 @@ Features:
 
 Ready to get started? Copy this repo, then
 
-1. search for "com_myorg_rules_mylang" and replace with the name you'll use for your module
+1. search for "rules_react_native" and replace with the name you'll use for your module
 1. search for "myorg" and replace with GitHub org
 1. search for "mylang", "Mylang", "MYLANG" and replace with the language/tool your rules are for
 1. rename directory "mylang" similarly
@@ -44,7 +44,7 @@ For example to use commit `abc123`:
 
 ```starlark
 archive_override(
-    module_name = "com_myorg_rules_mylang",
+    module_name = "rules_react_native",
     url = "https://github.com/myorg/rules_mylang/archive/abc123.tar.gz",
     strip_prefix = "rules_mylang-abc123",
     # The easiest way to set this is to commout out this line, then Bazel will print

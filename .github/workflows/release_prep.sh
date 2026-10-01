@@ -29,6 +29,6 @@ cat << EOF
 Add to your \`MODULE.bazel\` file:
 
 \`\`\`starlark
-bazel_dep(name = "com_myorg_rules_mylang", version = "${TAG:1}")
+bazel_dep(name = "rules_react_native", version = "${TAG:1}")
 \`\`\`
 EOF
