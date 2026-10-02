@@ -38,3 +38,17 @@ bazel_dep(name = "bazel_skylib_gazelle_plugin", version = "1.8.2", dev_dependenc
 bazel_dep(name = "bazel_lib", version = "3.0.0", dev_dependency = True)
 
 bazel_dep(name = "bazelrc-preset.bzl", version = "1.6.0")
+
+# JavaScript dependencies for the Metro integration example and rule development.
+bazel_dep(name = "aspect_rules_js", version = "3.5.1", dev_dependency = True)
+
+npm = use_extension(
+    "@aspect_rules_js//npm:extensions.bzl",
+    "npm",
+    dev_dependency = True,
+)
+npm.npm_translate_lock(
+    name = "npm",
+    pnpm_lock = "//examples/metro:pnpm-lock.yaml",
+)
+use_repo(npm, "npm")

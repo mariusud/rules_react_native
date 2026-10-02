@@ -1,0 +1,14 @@
+load("@npm//:defs.bzl", "npm_link_all_packages")
+
+npm_link_all_packages()
+
+filegroup(
+    name = "app_sources",
+    srcs = glob(["*.js"]) + ["package.json"],
+    visibility = ["//visibility:public"],
+)
+
+exports_files(
+    ["index.js"],
+    visibility = ["//visibility:public"],
+)

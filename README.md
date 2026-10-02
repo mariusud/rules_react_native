@@ -1,36 +1,14 @@
-# Template for Bazel rules
-
-Copy this template to create a Bazel ruleset.
-
-Features:
-
-- follows the official style guide at https://bazel.build/rules/deploying
-- includes Bazel formatting as a pre-commit hook (using [buildifier])
-- includes API documentation generation
-- includes typical toolchain setup
-- CI configured with GitHub Actions
-- release using GitHub Actions just by pushing a tag
-- release flow supports GitHub [immutable releases](https://docs.github.com/en/code-security/concepts/supply-chain-security/immutable-releases)
-- the release artifact doesn't need to be built by Bazel, but can still exclude files and stamp the version
-
-Ready to get started? Copy this repo, then
-
-1. search for "rules_react_native" and replace with the name you'll use for your module
-1. search for "mariusud" and replace with GitHub org
-1. search for "react_native", "ReactNative", "REACT_NATIVE" and replace with the language/tool your rules are for
-1. rename directory "react_native" similarly
-1. run `pre-commit install` to get lints (see CONTRIBUTING.md)
-1. if you don't need to fetch platform-dependent tools, then remove anything toolchain-related.
-1. (optional) install the [Renovate app](https://github.com/apps/renovate) to get auto-PRs to keep the dependencies up-to-date.
-1. delete this section of the README (everything up to the SNIP).
-
-Optional: if you write tools for your rules to call, you should avoid toolchain dependencies for those tools leaking to all users.
-For example, https://github.com/aspect-build/rules_py actions rely on a couple of binaries written in Rust, but we don't want users to be forced to
-fetch a working Rust toolchain. Instead we want to ship pre-built binaries on our GH releases, and the ruleset fetches these as toolchains.
-See https://blog.aspect.build/releasing-bazel-rulesets-rust for information on how to do this.
-Note that users who _do_ want to build tools from source should still be able to do so, they just need to register a different toolchain earlier.
-
 # Bazel rules for react_native
+
+This is my attempt at trying to build react-native projects with bazel. I am not particularly experienced at bazel and this is still very much WIP, so don't expect anything.
+
+## Roadmap
+
+- [ ] Set up bundling: will focus either on Re.pack or Metro and then come back and do the other one once I can verify this works E2E
+- [ ] Set up Hermes: compile JS bundle to bytecode
+- [ ] Set up iOS: use rules_apple and compile a minimal app
+- [ ] Set up Android: ?
+- [ ] Set up Expo: ?
 
 ## Installation
 

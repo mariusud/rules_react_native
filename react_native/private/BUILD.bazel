@@ -1,0 +1,15 @@
+load(":metro.bzl", "metro_binary")
+
+metro_binary(
+    name = "ios_bundle",
+    srcs = ["//examples/metro:app_sources"],
+    entry_point = "//examples/metro:index.js",
+    platform = "ios",
+)
+
+metro_binary(
+    name = "android_bundle",
+    srcs = ["//examples/metro:app_sources"],
+    entry_point = "//examples/metro:index.js",
+    platform = "android",
+)

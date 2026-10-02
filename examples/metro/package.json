@@ -1,0 +1,16 @@
+{
+  "name": "rules-react-native-metro-example",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@10.10.0",
+  "main": "index.js",
+  "dependencies": {
+    "react": "19.2.3",
+    "react-native": "0.86.3"
+  },
+  "devDependencies": {
+    "@react-native-community/cli": "20.2.0",
+    "@react-native/babel-preset": "0.86.3",
+    "@react-native/metro-config": "0.86.3"
+  }
+}
