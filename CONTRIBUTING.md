@@ -14,8 +14,13 @@ First [install pre-commit](https://pre-commit.com/#installation),
 then run
 
 ```shell
-pre-commit install
+git config core.hooksPath .githooks
 ```
+
+The repository hook runs the configured checks and automatically stages fixes
+to files already staged for the commit. If a staged file also has unstaged
+edits, stage or set those edits aside first so they are not accidentally
+included.
 
 Otherwise later tooling on CI will yell at you about formatting/linting violations.
 

@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_root="$(git rev-parse --show-toplevel)"
+cd "$repo_root"
+
+staged_files=()
+while IFS= read -r -d '' file; do
+    staged_files+=("$file")
+done < <(git diff --cached --name-only --diff-filter=ACMR -z)
+
+if ((${#staged_files[@]} == 0)); then
+    exit 0
+fi
+
+# Do not stage formatter output over separate, unstaged edits to the same file.
+for file in "${staged_files[@]}"; do
+    if ! git diff --quiet -- "$file"; then
+        printf 'Cannot auto-stage fixes: %s has unstaged edits. Stage or set those edits aside first.\n' "$file" >&2
+        exit 1
+    fi
+done
+
+for attempt in 1 2 3; do
+    if pre-commit run --config "$repo_root/.pre-commit-config.yaml"; then
+        exit 0
+    fi
+
+    changed_files=()
+    while IFS= read -r -d '' file; do
+        changed_files+=("$file")
+    done < <(git diff --name-only -z -- "${staged_files[@]}")
+
+    if ((${#changed_files[@]} == 0)); then
+        exit 1
+    fi
+
+    git add -- "${changed_files[@]}"
+    printf 'Staged hook fixes; rerunning checks (pass %d/3).\n' "$((attempt + 1))"
+done
+
+printf 'Hooks kept modifying files after three passes; stopping the commit.\n' >&2
+exit 1
